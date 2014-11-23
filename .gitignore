@@ -2,3 +2,6 @@
 tmp.*
 *.swp
 *.h5
+*.gdf
+model-data.txt
+moulder-app.pkl
