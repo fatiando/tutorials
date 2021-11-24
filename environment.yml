@@ -1,0 +1,25 @@
+name: fatiando-tutorials
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    - python==3.9
+    - pip
+    - numpy
+    - scipy
+    - pandas
+    - matplotlib
+    - jupyter
+    - jupyterlab
+    - xarray
+    - netcdf4
+    - pygmt==0.4.*
+    - gmt==6.2.*
+    - pyproj
+    - pykdtree
+    - numba
+    # Fatiando packages
+    - pooch>=1.5.0,<2.0.0
+    - verde>=1.6.0,<2.0.0
+    - boule==0.3.*
+    - harmonica==0.3.*
