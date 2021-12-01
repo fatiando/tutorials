@@ -5,6 +5,12 @@ data problems in geoscience.
 
 ## License
 
-The tutorials are free software: you can redistribute it and/or modify it under
-the terms of the BSD 3-clause License.
-A copy of this license is provided in the [`LICENSE.txt`](LICENSE.txt) file.
+All Python source code is made available under the BSD 3-clause license. You
+can freely use and modify the code, without warranty, so long as you provide
+attribution to the authors.
+
+Unless otherwise specified, all figures and Jupyter notebooks are available
+under the Creative Commons Attribution 4.0 License (CC-BY).
+
+The full text of these licenses is provided in the [`LICENSE.txt`](LICENSE.txt)
+file.

@@ -11,6 +11,7 @@ dependencies:
     - matplotlib
     - jupyter
     - jupyterlab
+    - jupyterlab-spellchecker
     - xarray
     - netcdf4
     - pygmt==0.4.*
