@@ -10,7 +10,7 @@ There are several options for running our tutorials
 
 :rocket: Launch | ℹ️ Description
 -- | --
-[![Binder](https://img.shields.io/badge/launch-Binder-blue?style=flat-square)](https://mybinder.org/v2/gh/fatiando/tutorials/HEAD) | Run the tutorials online through the excellent [Binder](https://mybinder.org/) service. 
+[![Binder](https://img.shields.io/badge/launch-Binder-blue?style=flat-square)](https://mybinder.org/v2/gh/fatiando/tutorials/main?filepath=gravity-processing.ipynb) | Run the tutorials online through the excellent [Binder](https://mybinder.org/) service. 
 [![nbviewer](https://img.shields.io/badge/view-nbviewer-blue?style=flat-square)](https://nbviewer.org/github/fatiando/tutorials/blob/main/gravity-processing.ipynb) | Browse and explore the code and text in the notebooks online (but won't be able to run the code).
 [![Download](https://img.shields.io/badge/download-GitHub-blue?style=flat-square)](https://github.com/fatiando/tutorials/archive/refs/heads/main.zip) | Download an archive of this repository and run the notebooks on your computer. See below for instructions.
 
