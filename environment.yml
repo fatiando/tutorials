@@ -24,3 +24,4 @@ dependencies:
     - verde>=1.6.0,<2.0.0
     - boule==0.3.*
     - harmonica==0.3.*
+    - ensaio>=0.2.0
