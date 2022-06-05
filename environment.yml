@@ -6,6 +6,7 @@ dependencies:
     - python==3.9
     - pip
     - numpy
+    - cartopy
     - scipy
     - pandas
     - matplotlib
@@ -25,3 +26,4 @@ dependencies:
     - boule==0.3.*
     - harmonica==0.3.*
     - ensaio>=0.2.0
+    - jupyter-book
