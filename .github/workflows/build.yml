@@ -1,0 +1,50 @@
+name: build-book
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+# Use bash by default in all jobs
+defaults:
+  run:
+    # The -l {0} is necessary for conda environments to be activated
+    # But this breaks on MacOS if using actions/setup-python:
+    # https://github.com/actions/setup-python/issues/132
+    shell: bash -l {0}
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Conda environment with Micromamba
+        uses: mamba-org/provision-with-micromamba@main
+        with:
+          environment-file: environment.yml
+
+      - name: Build the website
+        run: jupyter-book build .
+
+      - name: Disable Jekyll builds on GitHub pages
+        run: touch _build/html/.nojekyll
+
+      - name: Print a directory tree of the generated HTML for debugging
+        run: tree -a _build/html
+
+      - name: Push to gh-pages
+        if: success() && github.event_name == 'push'
+        # Don't use tags: https://julienrenaux.fr/2019/12/20/github-actions-security-risk/
+        uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./_build/html
+          # Only keep the latest commit to avoid bloating the repository
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
