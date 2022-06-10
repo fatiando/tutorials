@@ -1,11 +1,13 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: intro
-chapters:
-- file: gravity-processing
-- file: scipygridder
-- file: blockkfold
-- file: blockreduce
-- file: blockreduce_weights
+parts:
+ - caption: Tutorials on Transform
+   chapters:
+     - file: notebooks/verde/blockreduce_weights
+ - caption: Tutorials using verde
+   chapters:
+     - file: notebooks/transform/gravity-processing
+     - file: notebooks/verde/scipygridder
+       sections:
+        - file: notebooks/verde/blockkfold
+        - file: notebooks/verde/blockreduce
