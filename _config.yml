@@ -18,7 +18,11 @@ latex:
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
-
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+  - html_image
 # Information about where the book exists on the web
 #repository:
 #  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
@@ -30,3 +34,4 @@ bibtex_bibfiles:
 #html:
 #  use_issues_button: true
 #  use_repository_button: true
+
