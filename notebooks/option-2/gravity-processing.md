@@ -36,7 +36,8 @@ In this tutorial, we will walk through the steps of transforming observed absolu
 The **Bushveld Igneous Complex** is located in South Africa and is the largest known layered igneous intrusion. It has been tilted and eroded forming the outcrops around what appears to be the edge of a great geological basin: the Transvaal Basin. It is approximately 2 billion years old and is divided into four different limbs: the northern, southern, eastern, and western limbs. The Bushveld Complex comprises the Rustenburg Layered suite, the Lebowa Granites and the Rooiberg Felsics, that are overlain by the Karoo sediments. See [Webb et al. (2004)](https://doi.org/10.2113/107.1-2.207) for an overview and previous interpretations of the Bushveld in depth.
 
 <figure>
-<img src="images/bushveld_igneous_complex_geology.jpg" alt="Geologic map of the Bushveld Complex">
+<img src="../../images/bushveld_igneous_complex_geology.jpg"
+alt="Geologic map of the Bushveld Complex">
 <figcaption><em>
     Geology and mineral exploration sites of the Bushveld Igneous Complex 
     (<a href="https://en.wikipedia.org/wiki/File:Bushveld_Igneous_Complex.png">public domain</a>).

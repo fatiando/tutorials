@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-## Processing and gridding gravity data
+# Processing and gridding gravity data
 
 **Authors:**
 [Santiago Soler](https://github.com/santisoler),

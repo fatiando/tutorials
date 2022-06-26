@@ -3,7 +3,6 @@ root: intro
 parts:
 - caption: 🚧 Option 1
   chapters:
-  - file: README.md
   - file: notebooks/option-1/1-intro.md
     sections:
     - file: notebooks/option-1/2-import.md

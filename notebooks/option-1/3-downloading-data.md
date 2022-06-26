@@ -24,8 +24,6 @@ import verde as vd
 import boule as bl
 import harmonica as hm
 ```
-+++
-
 # Fetch the data
 The three data sets required are:
 - Gravity
