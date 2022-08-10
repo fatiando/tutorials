@@ -1,9 +1,5 @@
-# Fatiando a Terra tutorials
-
-Jupyter notebooks with tutorials for using Fatiando a Terra software to solve
-data problems in geoscience.
-
-##  📓 Jupyter Notebooks
+# Welcome to Fatiando a Terra tutorials
+On this website, you will find tutorials to help you get the most out of Fatiando a Terra software's capabilities for solving geoscience data problems.
 
 There are several options for running our tutorials 
 (follow the links by clicking on the "launch" buttons):
@@ -19,7 +15,7 @@ There are several options for running our tutorials
 > JupyterLab without warning. This is a good way to explore but if you intend
 > on editing the notebook then we recommend running things on your machine.
 
-### Running the code
+## Running the code
 
 To run the code on your computer, you will first need to 
 [install our libraries](https://www.fatiando.org/install/)

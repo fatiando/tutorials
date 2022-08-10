@@ -5,3 +5,4 @@ tmp.*
 *.gdf
 model-data.txt
 moulder-app.pkl
+_build

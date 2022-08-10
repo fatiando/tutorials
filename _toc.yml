@@ -1,0 +1,14 @@
+format: jb-book
+root: intro
+parts:
+- caption: Transform 2021
+  chapters:
+  - file: notebooks/transform2021/gravity-processing.md
+- caption: COMMUNITY
+  chapters:
+  - url: https://www.fatiando.org/contact/
+    title: Join the community
+  - url: https://github.com/fatiando/community/blob/main/CODE_OF_CONDUCT.md
+    title: Code of conduct
+  - url: https://github.com/fatiando/tutorials/issues/5
+    title: How to contribute
