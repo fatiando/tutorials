@@ -1,7 +1,7 @@
 format: jb-book
 root: intro
 parts:
-- caption: Processing and gridding gravity data with Fatiando a Terra
+- caption: Transform 2021
   chapters:
   - file: notebooks/transform2021/gravity-processing.md
 - caption: COMMUNITY
