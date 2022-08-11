@@ -1,0 +1,2 @@
+# Preparing yourself 
+People are coming to this site from a wide range of disciplines and with varying levels of background, and we want to make sure everybody can follow and enjoy the tutorials. That means you need to know Python's programming basics, some core math concepts, and some exposure to geoscience. In these sections, you will find some crucial tools to assist you on this journey.

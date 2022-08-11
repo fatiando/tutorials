@@ -31,7 +31,7 @@ In this tutorial, we will walk through the steps of transforming observed absolu
 
 +++ {"tags": []}
 
-## Video Tutorial
+## Video
 
 You can watch a video of our tutorial, "Processing gravity data with Harmonica," streamed live on Apr 22, 2021.
 ```{note}
@@ -39,7 +39,7 @@ Remember that the Youtube tutorials may differ slightly from the ones presented 
 ```
 
 ```{code-cell} ipython3
-:tags: ["remove_input"]
+:tags: [remove-input]
 
 from ipywidgets import widgets
 out1 = widgets.Output()
@@ -55,15 +55,20 @@ display(out)
 
 ## Study area
 
-The **Bushveld Igneous Complex** is located in South Africa and is the largest known layered igneous intrusion. It has been tilted and eroded forming the outcrops around what appears to be the edge of a great geological basin: the Transvaal Basin. It is approximately 2 billion years old and is divided into four different limbs: the northern, southern, eastern, and western limbs. The Bushveld Complex comprises the Rustenburg Layered suite, the Lebowa Granites and the Rooiberg Felsics, that are overlain by the Karoo sediments. See [Webb et al. (2004)](https://doi.org/10.2113/107.1-2.207) for an overview and previous interpretations of the Bushveld in depth.
+The **Bushveld Igneous Complex** is located in South Africa and is the largest known layered igneous intrusion. It has been tilted and eroded forming the outcrops around what appears to be the edge of a great geological basin: the Transvaal Basin. It is approximately 2 billion years old and is divided into four different limbs: the northern, southern, eastern, and western limbs. The Bushveld Complex comprises the Rustenburg Layered suite, the Lebowa Granites and the Rooiberg Felsics, that are overlain by the Karoo sediments. See
+ {cite}`webb` for an overview and previous interpretations of the Bushveld in depth.
 
-```{image} ../../images/bushveld_igneous_complex_geology.jpg
-:alt: fishy
-:class: bg-primary mb-1
-:width: 1000px
-:align: center
+```{figure} ../images/bushveld_igneous_complex_geology.jpg
+---
+width: 1000px
+name: bushveld-fig
+---
+The Bushveld Igneous Complex.
 ```
+
 +++
+
+
 
 ## Import packages
 
@@ -237,8 +242,9 @@ fig.plot(
 )
 fig.show()
 ```
-
-> **NOTE: This topography grid is not ideal for use with gravity processing.** The resolution of the grid is much coarser than our gravity data, which will cause under-correction when we remove the effect of the topography. For this example, we made the trade-off between a less-than-ideal dataset but one that is of manageable size. In practice, **always try to match the spatial resolution of the data and topography grid**.
+```{note}
+**This topography grid is not ideal for use with gravity processing.** The resolution of the grid is much coarser than our gravity data, which will cause under-correction when we remove the effect of the topography. For this example, we made the trade-off between a less-than-ideal dataset but one that is of manageable size. In practice, **always try to match the spatial resolution of the data and topography grid**.
+```
 
 +++
 
@@ -301,7 +307,10 @@ $$
 in which $(\lambda, \phi, h)$ are the longitude, latitude, and geometric height, $g$ is the observed gravity acceleration, and $\gamma$ is the calculated **normal gravity** of a reference ellipsoid. 
 Notice that all 3 quantities are located at the same point (the observation point).
 
-> **A note on disturbances vs anomalies:** We want to calculate the disturbance $\delta g(\lambda, \phi, h)$ instead of the traditional "gravity anomaly" $\Delta g(\lambda, \phi) = g(\lambda, \phi, h=N) - \gamma(\lambda, \phi, h=0)$ because the anomaly is not exclusively related to the subsurface density anomalies, while the gravity disturbance is. In fact, it does not even make sense to talk about the "height of the gravity anomaly" since by definition it is only variable in longitude and latitude. Most geophysicists will agree that, in practice, the "height" of observations matter for modeling and interpretation. In most cases, even if we calculate gravity anomalies, we end up pretending that they are gravity disturbances when interpreting the data. So why not calculate disturbances directly?
+```{note}
+**Disturbances vs anomalies:**. 
+We want to calculate the disturbance $\delta g(\lambda, \phi, h)$ instead of the traditional "gravity anomaly" $\Delta g(\lambda, \phi) = g(\lambda, \phi, h=N) - \gamma(\lambda, \phi, h=0)$ because the anomaly is not exclusively related to the subsurface density anomalies, while the gravity disturbance is. In fact, it does not even make sense to talk about the "height of the gravity anomaly" since by definition it is only variable in longitude and latitude. Most geophysicists will agree that, in practice, the "height" of observations matter for modeling and interpretation. In most cases, even if we calculate gravity anomalies, we end up pretending that they are gravity disturbances when interpreting the data. So why not calculate disturbances directly?
+```
 
 We can use [Boule](https://www.fatiando.org/boule) to compute the **normal gravity** of the WGS84 reference ellipsoid on any point outside of the ellipsoid using a closed-form equation. This eliminates the need for a free-air correction, which is a rough approximation at best. With that, we can compute the gravity disturbance and store it in our `pandas.DataFrame`.
 
@@ -346,16 +355,19 @@ The `prism_layer` function creates a prism model based on a surface undulating a
 
 Here we'll define "continental" as places with positive orthometric height since 0 orthometric height roughly matches the coastlines.
 
-<figure>
-<img src="images/topographic-correction.svg" alt="Sketch of the surfaces and masses involved in topographic correction of gravity disturbances.">
-<figcaption><em>
-    Sketch of the surfaces and masses involved in topographic correction of gravity disturbances. 
-    (CC-BY).
-</em></figcaption>
-</figure>
+```{figure} ../images/topographic-correction.svg
+---
+width: 1000px
+name: topocorrection-fig
+---
+Sketch of the surfaces and masses involved in topographic correction of gravity disturbances. 
+(CC-BY).
+```
 
-> **Note:** There is an extra effect of under- and over-correcting for ocean water in the oceans. This happens because we are assuming that the surface of the water is at 0 geometric height (the surface of the ellipsoid) when in fact it roughly follows the geoid. So in oceanic places where the geoid is below the ellipsoid, we correct for water where there was none and vice-versa. Luckily, this effect is negligible here since our study area is relatively far away from the ocean. We can safely ignore this correction but it should be performed when close to the coast or directly above the oceans.
 
+```{note}
+There is an extra effect of under- and over-correcting for ocean water in the oceans. This happens because we are assuming that the surface of the water is at 0 geometric height (the surface of the ellipsoid) when in fact it roughly follows the geoid. So in oceanic places where the geoid is below the ellipsoid, we correct for water where there was none and vice-versa. Luckily, this effect is negligible here since our study area is relatively far away from the ocean. We can safely ignore this correction but it should be performed when close to the coast or directly above the oceans.
+```
 ```{code-cell} ipython3
 # Start by placing the continental density above and below the ellipsoid
 topography_density = np.where(topography_geometric > 0, 2670, -2670)
@@ -433,17 +445,22 @@ A possible alternative would be to model and remove the Moho effect via an Airy 
 
 Here, we will use a simpler approach with the **equivalent sources** present in Harmonica to fit a set of deep point sources to the data. 
 
-<figure>
-<img src="images/equivalent-sources.svg" alt="Sketch equivalent sources method to perform interpolation or predict residuals.">
-<figcaption><em>
-    Sketch equivalent sources method to perform interpolation or predict residuals.
-    (CC-BY).
-</em></figcaption>
-</figure>
+```{figure} ../images/equivalent-sources.svg
+---
+width: 1000px
+name: equivalentsources
+---
+Sketch equivalent sources method to perform interpolation or predict residuals.
+(CC-BY).
+```
+
 
 Setting a large depth for the sources means that their field will be long-wavelength and is a good way to represent our regional. The choice of depth is somewhat subjective (as is the choice of polynomial degree) and will depend on the interpretation of the results.
 
-> **Note**: The equivalent sources approach may have trouble scaling to large datasets. New features in Harmonica are in development to account for this and should be released with the next version of the package. For the moment, it is recommended to pass the data through a `verde.BlockMean` prior to fitting the deep sources to avoid running out of memory.
+```{note}
+The equivalent sources approach may have trouble scaling to large datasets. New features in Harmonica are in development to account for this and should be released with the next version of the package. For the moment, it is recommended to pass the data through a `verde.BlockMean` prior to fitting the deep sources to avoid running out of memory.
+```
+
 
 ```{code-cell} ipython3
 # Create a set of deep sources at a depth of 500 km
@@ -527,6 +544,9 @@ fig.plot(
 )
 fig.show()
 ```
+## References
+```{bibliography}
+```
 
 ## Where to go next
 
@@ -549,5 +569,5 @@ attribution to the authors.
 Unless otherwise specified, all figures and Jupyter notebooks are available
 under the Creative Commons Attribution 4.0 License (CC-BY).
 
-The full text of these licenses is provided in the [`LICENSE.txt`](LICENSE.txt)
-file.
+The full text of these licenses is provided in the [`LICENSE.txt`](LICENSE.txt) file.
+
