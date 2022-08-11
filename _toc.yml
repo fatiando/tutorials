@@ -1,9 +1,14 @@
 format: jb-book
 root: intro
 parts:
-- caption: Transform 2021
+- caption: Tutorials that use all our libraries
   chapters:
-  - file: notebooks/transform2021/gravity-processing.md
+  - file: notebooks/gravity-processing.md
+- caption: Refresher
+  chapters:
+  - file: refresher-intro.md
+  chapters:
+  - file: coordinate-system-conventions.md
 - caption: COMMUNITY
   chapters:
   - url: https://www.fatiando.org/contact/
