@@ -49,7 +49,7 @@ html:
   comments:
     hypothesis              : false
     utterances              : false
-  announcement              : "" # A banner announcement at the top of the site.
+  announcement              : "The optimal version to view these tutorials is online. We are working on compatibility for downloading notebooks or running on Binder." # A banner announcement at the top of the site.
 
 #######################################################################################
 # LaTeX-specific settings
