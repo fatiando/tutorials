@@ -1,14 +1,15 @@
 format: jb-book
 root: intro
 parts:
-- caption: Tutorials that use all our libraries
+- caption: Tutorials including all Fatiando libraries
   chapters:
   - file: notebooks/gravity-processing.md
-- caption: Refresher
+- caption: Coordinate system convention
   chapters:
-  - file: refresher-intro.md
-  chapters:
-  - file: coordinate-system-conventions.md
+  - file: notebooks/cs_intro.md
+  - file: notebooks/cs_lu.md
+  - file: notebooks/cs_santi.md
+  - file: notebooks/cs_leo.md
 - caption: COMMUNITY
   chapters:
   - url: https://www.fatiando.org/contact/

@@ -1,5 +1,8 @@
 # Welcome to Fatiando a Terra tutorials
+
 On this website, you will find tutorials to help you get the most out of Fatiando a Terra software's capabilities for solving geoscience data problems.
+
+People are coming to this site from a wide range of disciplines and with varying levels of background, and we want to make sure everybody can follow and enjoy the tutorials. That means you need to know Python's programming basics, some core math concepts, and some exposure to geoscience. In these sections, you will find some crucial tools to assist you on this journey.
 
 There are several options for running our tutorials 
 (follow the links by clicking on the "launch" buttons):
